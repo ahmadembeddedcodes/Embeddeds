@@ -1,0 +1,512 @@
+
+General_Timer.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000268  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  000002bc  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .comment      00000030  00000000  00000000  000002bc  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000002ec  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000090  00000000  00000000  00000328  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000b39  00000000  00000000  000003b8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000006db  00000000  00000000  00000ef1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000759  00000000  00000000  000015cc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  0000013c  00000000  00000000  00001d28  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000007ab  00000000  00000000  00001e64  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000169  00000000  00000000  0000260f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000070  00000000  00000000  00002778  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+   8:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+   c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  10:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  14:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  18:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  1c:	0c 94 07 01 	jmp	0x20e	; 0x20e <__vector_7>
+  20:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  24:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  28:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  2c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  30:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  34:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  38:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  3c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  40:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  44:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  48:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  4c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  50:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+  60:	0e 94 19 01 	call	0x232	; 0x232 <main>
+  64:	0c 94 32 01 	jmp	0x264	; 0x264 <_exit>
+
+00000068 <__bad_interrupt>:
+  68:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+0000006c <Timer1_Init>:
+
+/*******************************************************/
+/************TIMER 1 ***********************************/
+/*******************************************************/
+
+u8 Timer1_Init(struct Timer1_Configuration config1_infos ){
+  6c:	cf 93       	push	r28
+  6e:	df 93       	push	r29
+  70:	00 d0       	rcall	.+0      	; 0x72 <Timer1_Init+0x6>
+  72:	00 d0       	rcall	.+0      	; 0x74 <Timer1_Init+0x8>
+  74:	1f 92       	push	r1
+  76:	cd b7       	in	r28, 0x3d	; 61
+  78:	de b7       	in	r29, 0x3e	; 62
+  7a:	49 83       	std	Y+1, r20	; 0x01
+  7c:	5a 83       	std	Y+2, r21	; 0x02
+  7e:	6b 83       	std	Y+3, r22	; 0x03
+  80:	7c 83       	std	Y+4, r23	; 0x04
+  82:	8d 83       	std	Y+5, r24	; 0x05
+	
+	/*****set el-mode	for the timer */
+	/* to choose the mode please choose it according to the mode number in the datasheet*/ 
+	
+	//take first 2 bit [WGM10,11] AND put it in TCCR1A register
+		TCCR1A_REG = (TCCR1A_REG | (config1_infos.timer1_mode&0x03));
+  84:	8f b5       	in	r24, 0x2f	; 47
+  86:	94 2f       	mov	r25, r20
+  88:	93 70       	andi	r25, 0x03	; 3
+  8a:	89 2b       	or	r24, r25
+  8c:	8f bd       	out	0x2f, r24	; 47
+		// take bit 3,4 bit [WGM10,11] AND put it in TCCR1A register 
+		TCCR1B_REG = (TCCR1B_REG | (config1_infos.timer1_mode&0x06));
+  8e:	8e b5       	in	r24, 0x2e	; 46
+  90:	94 2f       	mov	r25, r20
+  92:	96 70       	andi	r25, 0x06	; 6
+  94:	89 2b       	or	r24, r25
+  96:	8e bd       	out	0x2e, r24	; 46
+		
+	
+	
+	/** prescaller**/
+	switch(config1_infos.timer1_prescaler)
+  98:	8a 81       	ldd	r24, Y+2	; 0x02
+  9a:	9b 81       	ldd	r25, Y+3	; 0x03
+  9c:	88 30       	cpi	r24, 0x08	; 8
+  9e:	91 05       	cpc	r25, r1
+  a0:	c1 f0       	breq	.+48     	; 0xd2 <Timer1_Init+0x66>
+  a2:	38 f4       	brcc	.+14     	; 0xb2 <Timer1_Init+0x46>
+  a4:	86 30       	cpi	r24, 0x06	; 6
+  a6:	91 05       	cpc	r25, r1
+  a8:	21 f1       	breq	.+72     	; 0xf2 <Timer1_Init+0x86>
+  aa:	38 f5       	brcc	.+78     	; 0xfa <Timer1_Init+0x8e>
+  ac:	89 2b       	or	r24, r25
+  ae:	69 f0       	breq	.+26     	; 0xca <Timer1_Init+0x5e>
+  b0:	28 c0       	rjmp	.+80     	; 0x102 <Timer1_Init+0x96>
+  b2:	81 15       	cp	r24, r1
+  b4:	21 e0       	ldi	r18, 0x01	; 1
+  b6:	92 07       	cpc	r25, r18
+  b8:	a1 f0       	breq	.+40     	; 0xe2 <Timer1_Init+0x76>
+  ba:	81 15       	cp	r24, r1
+  bc:	24 e0       	ldi	r18, 0x04	; 4
+  be:	92 07       	cpc	r25, r18
+  c0:	a1 f0       	breq	.+40     	; 0xea <Timer1_Init+0x7e>
+  c2:	80 34       	cpi	r24, 0x40	; 64
+  c4:	91 05       	cpc	r25, r1
+  c6:	e9 f4       	brne	.+58     	; 0x102 <Timer1_Init+0x96>
+  c8:	08 c0       	rjmp	.+16     	; 0xda <Timer1_Init+0x6e>
+	{
+		// No prescaller
+		case clk_0 :
+		TCCR1B_REG |= (1<<CS10_BIT);
+  ca:	8e b5       	in	r24, 0x2e	; 46
+  cc:	81 60       	ori	r24, 0x01	; 1
+  ce:	8e bd       	out	0x2e, r24	; 46
+		break;
+  d0:	1b c0       	rjmp	.+54     	; 0x108 <Timer1_Init+0x9c>
+		
+		case clk_8 :
+		TCCR1B_REG |= (1<<CS11_BIT);
+  d2:	8e b5       	in	r24, 0x2e	; 46
+  d4:	82 60       	ori	r24, 0x02	; 2
+  d6:	8e bd       	out	0x2e, r24	; 46
+		break;
+  d8:	17 c0       	rjmp	.+46     	; 0x108 <Timer1_Init+0x9c>
+		
+		case clk_64 :
+		TCCR1B_REG |= (1<<CS10_BIT) | (1<<CS11_BIT);
+  da:	8e b5       	in	r24, 0x2e	; 46
+  dc:	83 60       	ori	r24, 0x03	; 3
+  de:	8e bd       	out	0x2e, r24	; 46
+		break;
+  e0:	13 c0       	rjmp	.+38     	; 0x108 <Timer1_Init+0x9c>
+		
+		case clk_256 :
+		TCCR1B_REG |= (1<<CS12_BIT);
+  e2:	8e b5       	in	r24, 0x2e	; 46
+  e4:	84 60       	ori	r24, 0x04	; 4
+  e6:	8e bd       	out	0x2e, r24	; 46
+		break;
+  e8:	0f c0       	rjmp	.+30     	; 0x108 <Timer1_Init+0x9c>
+		
+		case clk_1024 :
+		TCCR1B_REG |= (1<<CS10_BIT) | (1<<CS12_BIT);
+  ea:	8e b5       	in	r24, 0x2e	; 46
+  ec:	85 60       	ori	r24, 0x05	; 5
+  ee:	8e bd       	out	0x2e, r24	; 46
+		break;
+  f0:	0b c0       	rjmp	.+22     	; 0x108 <Timer1_Init+0x9c>
+		
+		case clk_EXTERNAL_1 :
+		TCCR1B_REG |= (1<<CS11_BIT) | (1<<CS12_BIT);
+  f2:	8e b5       	in	r24, 0x2e	; 46
+  f4:	86 60       	ori	r24, 0x06	; 6
+  f6:	8e bd       	out	0x2e, r24	; 46
+		break;
+  f8:	07 c0       	rjmp	.+14     	; 0x108 <Timer1_Init+0x9c>
+		
+		case clk_EXTERNAL_2 :
+		TCCR1B_REG |= (1<<CS10_BIT) | (1<<CS11_BIT)|(1<<CS12_BIT);
+  fa:	8e b5       	in	r24, 0x2e	; 46
+  fc:	87 60       	ori	r24, 0x07	; 7
+  fe:	8e bd       	out	0x2e, r24	; 46
+		break;
+ 100:	03 c0       	rjmp	.+6      	; 0x108 <Timer1_Init+0x9c>
+		
+		default:
+		// No_clock_source
+		TCCR1B_REG &= ~(1<<CS10_BIT)|(1<<CS11_BIT)|(1<<CS12_BIT);
+ 102:	8e b5       	in	r24, 0x2e	; 46
+ 104:	8e 7f       	andi	r24, 0xFE	; 254
+ 106:	8e bd       	out	0x2e, r24	; 46
+		break;
+	}
+	
+	/** check if there is interrupt has to be enabled or not */
+	switch(config1_infos.timer1_int)
+ 108:	8d 81       	ldd	r24, Y+5	; 0x05
+ 10a:	88 23       	and	r24, r24
+ 10c:	19 f0       	breq	.+6      	; 0x114 <Timer1_Init+0xa8>
+ 10e:	81 30       	cpi	r24, 0x01	; 1
+ 110:	29 f0       	breq	.+10     	; 0x11c <Timer1_Init+0xb0>
+ 112:	08 c0       	rjmp	.+16     	; 0x124 <Timer1_Init+0xb8>
+	{
+		case Timer_Output_Compare_Match_Interrupt_Enable:
+		TIMSK_REG |=(1<<OCIE1A_BIT)|(1<<OCIE1B_BIT);
+ 114:	89 b7       	in	r24, 0x39	; 57
+ 116:	88 61       	ori	r24, 0x18	; 24
+ 118:	89 bf       	out	0x39, r24	; 57
+		break;
+ 11a:	07 c0       	rjmp	.+14     	; 0x12a <Timer1_Init+0xbe>
+		
+		case Timer_Overflow_Interrupt_Enable:
+		TIMSK_REG |=(1<<TOIE1_BIT);
+ 11c:	89 b7       	in	r24, 0x39	; 57
+ 11e:	84 60       	ori	r24, 0x04	; 4
+ 120:	89 bf       	out	0x39, r24	; 57
+		break;
+ 122:	03 c0       	rjmp	.+6      	; 0x12a <Timer1_Init+0xbe>
+		
+		default: // Timer interrupt is off by default
+		TIMSK_REG &=~(1<<TOIE1_BIT)|(1<<OCIE1A_BIT)|(1<<OCIE1B_BIT);
+ 124:	89 b7       	in	r24, 0x39	; 57
+ 126:	8b 7f       	andi	r24, 0xFB	; 251
+ 128:	89 bf       	out	0x39, r24	; 57
+	/*** set the o/p compare status **/
+	
+	//** choose the OC0 pin according to it's mode as datasheet says :D */
+
+	//1- Compare Output Mode, non-PWM Mode
+	if (config1_infos.timer1_mode==NORMAL_1)
+ 12a:	41 11       	cpse	r20, r1
+ 12c:	22 c0       	rjmp	.+68     	; 0x172 <Timer1_Init+0x106>
+	{
+		switch(config1_infos.timer1_oc_pin)
+ 12e:	72 30       	cpi	r23, 0x02	; 2
+ 130:	59 f0       	breq	.+22     	; 0x148 <Timer1_Init+0xdc>
+ 132:	73 30       	cpi	r23, 0x03	; 3
+ 134:	81 f0       	breq	.+32     	; 0x156 <Timer1_Init+0xea>
+ 136:	71 30       	cpi	r23, 0x01	; 1
+ 138:	a9 f4       	brne	.+42     	; 0x164 <Timer1_Init+0xf8>
+		{
+			case TOGGLE_OC:
+			TCCR1B_REG |=(1<<COM1B0_BIT);
+ 13a:	8e b5       	in	r24, 0x2e	; 46
+ 13c:	80 61       	ori	r24, 0x10	; 16
+ 13e:	8e bd       	out	0x2e, r24	; 46
+			TCCR1A_REG |=(1<<COM1A0_BIT);
+ 140:	8f b5       	in	r24, 0x2f	; 47
+ 142:	80 64       	ori	r24, 0x40	; 64
+ 144:	8f bd       	out	0x2f, r24	; 47
+			break;
+ 146:	5a c0       	rjmp	.+180    	; 0x1fc <Timer1_Init+0x190>
+			
+			case CLEAR_OC:
+			TCCR1B_REG |=(1<<COM1B1_BIT);
+ 148:	8e b5       	in	r24, 0x2e	; 46
+ 14a:	80 62       	ori	r24, 0x20	; 32
+ 14c:	8e bd       	out	0x2e, r24	; 46
+			TCCR1A_REG |=(1<<COM1A1_BIT);
+ 14e:	8f b5       	in	r24, 0x2f	; 47
+ 150:	80 68       	ori	r24, 0x80	; 128
+ 152:	8f bd       	out	0x2f, r24	; 47
+			break;
+ 154:	53 c0       	rjmp	.+166    	; 0x1fc <Timer1_Init+0x190>
+			
+			case SET_OC:
+			TCCR1B_REG |=(1<<COM1B0_BIT)|(1<<COM1B1_BIT);
+ 156:	8e b5       	in	r24, 0x2e	; 46
+ 158:	80 63       	ori	r24, 0x30	; 48
+ 15a:	8e bd       	out	0x2e, r24	; 46
+			TCCR1B_REG |=(1<<COM1A0_BIT)|(1<<COM1A1_BIT);
+ 15c:	8e b5       	in	r24, 0x2e	; 46
+ 15e:	80 6c       	ori	r24, 0xC0	; 192
+ 160:	8e bd       	out	0x2e, r24	; 46
+			break;
+ 162:	4c c0       	rjmp	.+152    	; 0x1fc <Timer1_Init+0x190>
+			
+			default: // must be => NORMAL_PORT_OPERATION[NORMAL]
+			TCCR1B_REG &=~(1<<COM1B0_BIT)|(1<<COM1B1_BIT);
+ 164:	8e b5       	in	r24, 0x2e	; 46
+ 166:	8f 7e       	andi	r24, 0xEF	; 239
+ 168:	8e bd       	out	0x2e, r24	; 46
+			TCCR1B_REG &=~(1<<COM1A0_BIT)|(1<<COM1A1_BIT);
+ 16a:	8e b5       	in	r24, 0x2e	; 46
+ 16c:	8f 7b       	andi	r24, 0xBF	; 191
+ 16e:	8e bd       	out	0x2e, r24	; 46
+			break;
+ 170:	45 c0       	rjmp	.+138    	; 0x1fc <Timer1_Init+0x190>
+		}
+	}
+	//2- Compare Output Mode, Fast PWM Mode
+	else if (config1_infos.timer1_mode==FAST_PWM_8BIT )
+ 172:	45 30       	cpi	r20, 0x05	; 5
+ 174:	11 f5       	brne	.+68     	; 0x1ba <Timer1_Init+0x14e>
+	{
+		switch(config1_infos.timer1_oc_pin)
+ 176:	72 30       	cpi	r23, 0x02	; 2
+ 178:	59 f0       	breq	.+22     	; 0x190 <Timer1_Init+0x124>
+ 17a:	73 30       	cpi	r23, 0x03	; 3
+ 17c:	81 f0       	breq	.+32     	; 0x19e <Timer1_Init+0x132>
+ 17e:	71 30       	cpi	r23, 0x01	; 1
+ 180:	a9 f4       	brne	.+42     	; 0x1ac <Timer1_Init+0x140>
+		{
+		
+		case TOGGLE_OC:
+		TCCR1B_REG |=(1<<COM1B0_BIT);
+ 182:	8e b5       	in	r24, 0x2e	; 46
+ 184:	80 61       	ori	r24, 0x10	; 16
+ 186:	8e bd       	out	0x2e, r24	; 46
+		TCCR1A_REG |=(1<<COM1A0_BIT);
+ 188:	8f b5       	in	r24, 0x2f	; 47
+ 18a:	80 64       	ori	r24, 0x40	; 64
+ 18c:	8f bd       	out	0x2f, r24	; 47
+		break;
+ 18e:	36 c0       	rjmp	.+108    	; 0x1fc <Timer1_Init+0x190>
+		
+		case CLEAR_OC:
+		TCCR1B_REG |=(1<<COM1B1_BIT);
+ 190:	8e b5       	in	r24, 0x2e	; 46
+ 192:	80 62       	ori	r24, 0x20	; 32
+ 194:	8e bd       	out	0x2e, r24	; 46
+		TCCR1A_REG |=(1<<COM1A1_BIT);
+ 196:	8f b5       	in	r24, 0x2f	; 47
+ 198:	80 68       	ori	r24, 0x80	; 128
+ 19a:	8f bd       	out	0x2f, r24	; 47
+		break;
+ 19c:	2f c0       	rjmp	.+94     	; 0x1fc <Timer1_Init+0x190>
+		
+		case SET_OC:
+		TCCR1B_REG |=(1<<COM1B0_BIT)|(1<<COM1B1_BIT);
+ 19e:	8e b5       	in	r24, 0x2e	; 46
+ 1a0:	80 63       	ori	r24, 0x30	; 48
+ 1a2:	8e bd       	out	0x2e, r24	; 46
+		TCCR1B_REG |=(1<<COM1A0_BIT)|(1<<COM1A1_BIT);
+ 1a4:	8e b5       	in	r24, 0x2e	; 46
+ 1a6:	80 6c       	ori	r24, 0xC0	; 192
+ 1a8:	8e bd       	out	0x2e, r24	; 46
+		break;
+ 1aa:	28 c0       	rjmp	.+80     	; 0x1fc <Timer1_Init+0x190>
+		
+		default: // must be => NORMAL_PORT_OPERATION[NORMAL]
+		TCCR1B_REG &=~(1<<COM1B0_BIT)|(1<<COM1B1_BIT);
+ 1ac:	8e b5       	in	r24, 0x2e	; 46
+ 1ae:	8f 7e       	andi	r24, 0xEF	; 239
+ 1b0:	8e bd       	out	0x2e, r24	; 46
+		TCCR1B_REG &=~(1<<COM1A0_BIT)|(1<<COM1A1_BIT);
+ 1b2:	8e b5       	in	r24, 0x2e	; 46
+ 1b4:	8f 7b       	andi	r24, 0xBF	; 191
+ 1b6:	8e bd       	out	0x2e, r24	; 46
+		break;		}
+ 1b8:	21 c0       	rjmp	.+66     	; 0x1fc <Timer1_Init+0x190>
+	}
+	//3- Compare Output Mode, PHASE CORRECT
+	else
+	{
+		switch(config1_infos.timer1_oc_pin)
+ 1ba:	72 30       	cpi	r23, 0x02	; 2
+ 1bc:	59 f0       	breq	.+22     	; 0x1d4 <Timer1_Init+0x168>
+ 1be:	73 30       	cpi	r23, 0x03	; 3
+ 1c0:	81 f0       	breq	.+32     	; 0x1e2 <Timer1_Init+0x176>
+ 1c2:	71 30       	cpi	r23, 0x01	; 1
+ 1c4:	a9 f4       	brne	.+42     	; 0x1f0 <Timer1_Init+0x184>
+		{
+					case TOGGLE_OC:
+					TCCR1B_REG |=(1<<COM1B0_BIT);
+ 1c6:	8e b5       	in	r24, 0x2e	; 46
+ 1c8:	80 61       	ori	r24, 0x10	; 16
+ 1ca:	8e bd       	out	0x2e, r24	; 46
+					TCCR1A_REG |=(1<<COM1A0_BIT);
+ 1cc:	8f b5       	in	r24, 0x2f	; 47
+ 1ce:	80 64       	ori	r24, 0x40	; 64
+ 1d0:	8f bd       	out	0x2f, r24	; 47
+					break;
+ 1d2:	14 c0       	rjmp	.+40     	; 0x1fc <Timer1_Init+0x190>
+					
+					case CLEAR_OC:
+					TCCR1B_REG |=(1<<COM1B1_BIT);
+ 1d4:	8e b5       	in	r24, 0x2e	; 46
+ 1d6:	80 62       	ori	r24, 0x20	; 32
+ 1d8:	8e bd       	out	0x2e, r24	; 46
+					TCCR1A_REG |=(1<<COM1A1_BIT);
+ 1da:	8f b5       	in	r24, 0x2f	; 47
+ 1dc:	80 68       	ori	r24, 0x80	; 128
+ 1de:	8f bd       	out	0x2f, r24	; 47
+					break;
+ 1e0:	0d c0       	rjmp	.+26     	; 0x1fc <Timer1_Init+0x190>
+					
+					case SET_OC:
+					TCCR1B_REG |=(1<<COM1B0_BIT)|(1<<COM1B1_BIT);
+ 1e2:	8e b5       	in	r24, 0x2e	; 46
+ 1e4:	80 63       	ori	r24, 0x30	; 48
+ 1e6:	8e bd       	out	0x2e, r24	; 46
+					TCCR1B_REG |=(1<<COM1A0_BIT)|(1<<COM1A1_BIT);
+ 1e8:	8e b5       	in	r24, 0x2e	; 46
+ 1ea:	80 6c       	ori	r24, 0xC0	; 192
+ 1ec:	8e bd       	out	0x2e, r24	; 46
+					break;
+ 1ee:	06 c0       	rjmp	.+12     	; 0x1fc <Timer1_Init+0x190>
+					
+					default: // must be => NORMAL_PORT_OPERATION[NORMAL]
+					TCCR1B_REG &=~(1<<COM1B0_BIT)|(1<<COM1B1_BIT);
+ 1f0:	8e b5       	in	r24, 0x2e	; 46
+ 1f2:	8f 7e       	andi	r24, 0xEF	; 239
+ 1f4:	8e bd       	out	0x2e, r24	; 46
+					TCCR1B_REG &=~(1<<COM1A0_BIT)|(1<<COM1A1_BIT);
+ 1f6:	8e b5       	in	r24, 0x2e	; 46
+ 1f8:	8f 7b       	andi	r24, 0xBF	; 191
+ 1fa:	8e bd       	out	0x2e, r24	; 46
+		}
+	}//end of if() statement
+	
+	return NO_ERROR ;
+
+}
+ 1fc:	81 e0       	ldi	r24, 0x01	; 1
+ 1fe:	0f 90       	pop	r0
+ 200:	0f 90       	pop	r0
+ 202:	0f 90       	pop	r0
+ 204:	0f 90       	pop	r0
+ 206:	0f 90       	pop	r0
+ 208:	df 91       	pop	r29
+ 20a:	cf 91       	pop	r28
+ 20c:	08 95       	ret
+
+0000020e <__vector_7>:
+#define F_OUT 50000 // output frequency
+#define OCR0_VALUE ((((F_CPU/2)/clk_1024)/F_OUT)-1)
+
+
+ISR(TIMER1_COMPA_vect) // interrupt subroutine
+{
+ 20e:	1f 92       	push	r1
+ 210:	0f 92       	push	r0
+ 212:	0f b6       	in	r0, 0x3f	; 63
+ 214:	0f 92       	push	r0
+ 216:	11 24       	eor	r1, r1
+ 218:	8f 93       	push	r24
+ 21a:	9f 93       	push	r25
+  OCR1A =  (u16) OCR0_VALUE ; 	
+ 21c:	8f ef       	ldi	r24, 0xFF	; 255
+ 21e:	9f ef       	ldi	r25, 0xFF	; 255
+ 220:	9b bd       	out	0x2b, r25	; 43
+ 222:	8a bd       	out	0x2a, r24	; 42
+	//Timer1_Set_OCR1A( (u16)OCR0_VALUE ); //put OCR value 	
+}   
+ 224:	9f 91       	pop	r25
+ 226:	8f 91       	pop	r24
+ 228:	0f 90       	pop	r0
+ 22a:	0f be       	out	0x3f, r0	; 63
+ 22c:	0f 90       	pop	r0
+ 22e:	1f 90       	pop	r1
+ 230:	18 95       	reti
+
+00000232 <main>:
+
+
+int main(void)
+{
+ 232:	cf 93       	push	r28
+ 234:	df 93       	push	r29
+ 236:	00 d0       	rcall	.+0      	; 0x238 <main+0x6>
+ 238:	00 d0       	rcall	.+0      	; 0x23a <main+0x8>
+ 23a:	1f 92       	push	r1
+ 23c:	cd b7       	in	r28, 0x3d	; 61
+ 23e:	de b7       	in	r29, 0x3e	; 62
+*/
+
+/***************************************/
+  struct Timer1_Configuration config;
+  //  struct Timer0_Configuration config;
+  config.timer1_mode= FAST_PWM_TOP_OCR1A ;
+ 240:	8f e0       	ldi	r24, 0x0F	; 15
+ 242:	89 83       	std	Y+1, r24	; 0x01
+  config.timer1_prescaler = clk_1024;
+ 244:	80 e0       	ldi	r24, 0x00	; 0
+ 246:	94 e0       	ldi	r25, 0x04	; 4
+ 248:	9b 83       	std	Y+3, r25	; 0x03
+ 24a:	8a 83       	std	Y+2, r24	; 0x02
+  config.timer1_oc_pin =CLEAR_OC;
+ 24c:	82 e0       	ldi	r24, 0x02	; 2
+ 24e:	8c 83       	std	Y+4, r24	; 0x04
+  //config.timer1_int= Timer_Output_Compare_Match_Interrupt_Enable;
+
+  //DDRB |=(1<<PINB3);
+
+  DDRD |=(1<<PIND5);
+ 250:	8d 9a       	sbi	0x11, 5	; 17
+  sei(); // enable global interrupts
+ 252:	78 94       	sei
+  
+  Timer1_Init(config); 
+ 254:	49 81       	ldd	r20, Y+1	; 0x01
+ 256:	5a 81       	ldd	r21, Y+2	; 0x02
+ 258:	6b 81       	ldd	r22, Y+3	; 0x03
+ 25a:	7c 81       	ldd	r23, Y+4	; 0x04
+ 25c:	8d 81       	ldd	r24, Y+5	; 0x05
+ 25e:	0e 94 36 00 	call	0x6c	; 0x6c <Timer1_Init>
+ 262:	ff cf       	rjmp	.-2      	; 0x262 <main+0x30>
+
+00000264 <_exit>:
+ 264:	f8 94       	cli
+
+00000266 <__stop_program>:
+ 266:	ff cf       	rjmp	.-2      	; 0x266 <__stop_program>
