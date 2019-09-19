@@ -1,0 +1,416 @@
+
+uart.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000218  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000010  00800060  00000218  0000028c  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .comment      00000030  00000000  00000000  0000029c  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000002cc  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 000000c8  00000000  00000000  00000308  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000bef  00000000  00000000  000003d0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000733  00000000  00000000  00000fbf  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000522  00000000  00000000  000016f2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  0000018c  00000000  00000000  00001c14  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000004b4  00000000  00000000  00001da0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    000006fe  00000000  00000000  00002254  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000098  00000000  00000000  00002952  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__ctors_end>
+   4:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+   8:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+   c:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  10:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  14:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  18:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  1c:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  20:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  24:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  28:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  2c:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  30:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  34:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  38:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  3c:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  40:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  44:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  48:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  4c:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  50:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  54:	70 00       	.word	0x0070	; ????
+  56:	72 00       	.word	0x0072	; ????
+  58:	74 00       	.word	0x0074	; ????
+  5a:	76 00       	.word	0x0076	; ????
+  5c:	77 00       	.word	0x0077	; ????
+  5e:	77 00       	.word	0x0077	; ????
+  60:	77 00       	.word	0x0077	; ????
+  62:	77 00       	.word	0x0077	; ????
+  64:	77 00       	.word	0x0077	; ????
+  66:	77 00       	.word	0x0077	; ????
+  68:	77 00       	.word	0x0077	; ????
+  6a:	77 00       	.word	0x0077	; ????
+  6c:	77 00       	.word	0x0077	; ????
+  6e:	77 00       	.word	0x0077	; ????
+  70:	77 00       	.word	0x0077	; ????
+  72:	77 00       	.word	0x0077	; ????
+  74:	77 00       	.word	0x0077	; ????
+  76:	77 00       	.word	0x0077	; ????
+  78:	77 00       	.word	0x0077	; ????
+  7a:	77 00       	.word	0x0077	; ????
+  7c:	77 00       	.word	0x0077	; ????
+  7e:	77 00       	.word	0x0077	; ????
+  80:	77 00       	.word	0x0077	; ????
+  82:	77 00       	.word	0x0077	; ????
+  84:	77 00       	.word	0x0077	; ????
+  86:	77 00       	.word	0x0077	; ????
+  88:	77 00       	.word	0x0077	; ????
+  8a:	77 00       	.word	0x0077	; ????
+  8c:	77 00       	.word	0x0077	; ????
+  8e:	77 00       	.word	0x0077	; ????
+  90:	77 00       	.word	0x0077	; ????
+  92:	77 00       	.word	0x0077	; ????
+  94:	70 00       	.word	0x0070	; ????
+  96:	72 00       	.word	0x0072	; ????
+  98:	74 00       	.word	0x0074	; ????
+  9a:	76 00       	.word	0x0076	; ????
+
+0000009c <__ctors_end>:
+  9c:	11 24       	eor	r1, r1
+  9e:	1f be       	out	0x3f, r1	; 63
+  a0:	cf e5       	ldi	r28, 0x5F	; 95
+  a2:	d8 e0       	ldi	r29, 0x08	; 8
+  a4:	de bf       	out	0x3e, r29	; 62
+  a6:	cd bf       	out	0x3d, r28	; 61
+
+000000a8 <__do_copy_data>:
+  a8:	10 e0       	ldi	r17, 0x00	; 0
+  aa:	a0 e6       	ldi	r26, 0x60	; 96
+  ac:	b0 e0       	ldi	r27, 0x00	; 0
+  ae:	e8 e1       	ldi	r30, 0x18	; 24
+  b0:	f2 e0       	ldi	r31, 0x02	; 2
+  b2:	02 c0       	rjmp	.+4      	; 0xb8 <__do_copy_data+0x10>
+  b4:	05 90       	lpm	r0, Z+
+  b6:	0d 92       	st	X+, r0
+  b8:	a0 37       	cpi	r26, 0x70	; 112
+  ba:	b1 07       	cpc	r27, r17
+  bc:	d9 f7       	brne	.-10     	; 0xb4 <__do_copy_data+0xc>
+  be:	0e 94 c6 00 	call	0x18c	; 0x18c <main>
+  c2:	0c 94 0a 01 	jmp	0x214	; 0x214 <_exit>
+
+000000c6 <__bad_interrupt>:
+  c6:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000ca <GET_PORT_INDX>:
+
+		API_Status = NO_ERROR;
+
+	}
+	return API_Status ;
+}
+  ca:	90 e0       	ldi	r25, 0x00	; 0
+  cc:	fc 01       	movw	r30, r24
+  ce:	e1 54       	subi	r30, 0x41	; 65
+  d0:	f1 09       	sbc	r31, r1
+  d2:	e4 32       	cpi	r30, 0x24	; 36
+  d4:	f1 05       	cpc	r31, r1
+  d6:	58 f4       	brcc	.+22     	; 0xee <GET_PORT_INDX+0x24>
+  d8:	e6 5d       	subi	r30, 0xD6	; 214
+  da:	ff 4f       	sbci	r31, 0xFF	; 255
+  dc:	0c 94 04 01 	jmp	0x208	; 0x208 <__tablejump2__>
+  e0:	20 e0       	ldi	r18, 0x00	; 0
+  e2:	05 c0       	rjmp	.+10     	; 0xee <GET_PORT_INDX+0x24>
+  e4:	21 e0       	ldi	r18, 0x01	; 1
+  e6:	03 c0       	rjmp	.+6      	; 0xee <GET_PORT_INDX+0x24>
+  e8:	22 e0       	ldi	r18, 0x02	; 2
+  ea:	01 c0       	rjmp	.+2      	; 0xee <GET_PORT_INDX+0x24>
+  ec:	23 e0       	ldi	r18, 0x03	; 3
+  ee:	82 2f       	mov	r24, r18
+  f0:	08 95       	ret
+
+000000f2 <GPIO_U8_PORT_WRITE>:
+  f2:	cf 93       	push	r28
+  f4:	c6 2f       	mov	r28, r22
+  f6:	0e 94 65 00 	call	0xca	; 0xca <GET_PORT_INDX>
+  fa:	e8 2f       	mov	r30, r24
+  fc:	f0 e0       	ldi	r31, 0x00	; 0
+  fe:	ee 0f       	add	r30, r30
+ 100:	ff 1f       	adc	r31, r31
+ 102:	e8 59       	subi	r30, 0x98	; 152
+ 104:	ff 4f       	sbci	r31, 0xFF	; 255
+ 106:	01 90       	ld	r0, Z+
+ 108:	f0 81       	ld	r31, Z
+ 10a:	e0 2d       	mov	r30, r0
+ 10c:	c0 83       	st	Z, r28
+ 10e:	81 e0       	ldi	r24, 0x01	; 1
+ 110:	cf 91       	pop	r28
+ 112:	08 95       	ret
+
+00000114 <GPIO_U8_PIN_DIR>:
+
+u8 GPIO_U8_PIN_DIR(u8 port_name , u8 pin_number , u8 pin_value)
+{
+ 114:	cf 93       	push	r28
+	u8 API_Status;
+
+	if (pin_number > no_of_pins_on_port-1)
+ 116:	68 30       	cpi	r22, 0x08	; 8
+ 118:	a0 f5       	brcc	.+104    	; 0x182 <GPIO_U8_PIN_DIR+0x6e>
+ 11a:	c6 2f       	mov	r28, r22
+		API_Status = ERROR_HAPPEN;
+		return API_Status;
+	}
+	else{
+		
+		switch(pin_value)
+ 11c:	44 23       	and	r20, r20
+ 11e:	c9 f0       	breq	.+50     	; 0x152 <GPIO_U8_PIN_DIR+0x3e>
+ 120:	41 30       	cpi	r20, 0x01	; 1
+ 122:	89 f5       	brne	.+98     	; 0x186 <GPIO_U8_PIN_DIR+0x72>
+		{
+			case 1 :  *GPIO_DIR[GET_PORT_INDX(port_name)] |= (1<<pin_number); break;
+ 124:	0e 94 65 00 	call	0xca	; 0xca <GET_PORT_INDX>
+ 128:	e8 2f       	mov	r30, r24
+ 12a:	f0 e0       	ldi	r31, 0x00	; 0
+ 12c:	ee 0f       	add	r30, r30
+ 12e:	ff 1f       	adc	r31, r31
+ 130:	e0 5a       	subi	r30, 0xA0	; 160
+ 132:	ff 4f       	sbci	r31, 0xFF	; 255
+ 134:	01 90       	ld	r0, Z+
+ 136:	f0 81       	ld	r31, Z
+ 138:	e0 2d       	mov	r30, r0
+ 13a:	20 81       	ld	r18, Z
+ 13c:	81 e0       	ldi	r24, 0x01	; 1
+ 13e:	90 e0       	ldi	r25, 0x00	; 0
+ 140:	02 c0       	rjmp	.+4      	; 0x146 <GPIO_U8_PIN_DIR+0x32>
+ 142:	88 0f       	add	r24, r24
+ 144:	99 1f       	adc	r25, r25
+ 146:	ca 95       	dec	r28
+ 148:	e2 f7       	brpl	.-8      	; 0x142 <GPIO_U8_PIN_DIR+0x2e>
+ 14a:	82 2b       	or	r24, r18
+ 14c:	80 83       	st	Z, r24
+			default : API_Status= ERROR_HAPPEN; break;
+		}
+
+		API_Status= NO_ERROR;
+	}
+	return API_Status ;
+ 14e:	81 e0       	ldi	r24, 0x01	; 1
+	}
+	else{
+		
+		switch(pin_value)
+		{
+			case 1 :  *GPIO_DIR[GET_PORT_INDX(port_name)] |= (1<<pin_number); break;
+ 150:	1b c0       	rjmp	.+54     	; 0x188 <GPIO_U8_PIN_DIR+0x74>
+			
+			case 0 :  *GPIO_DIR[GET_PORT_INDX(port_name)] &=~(1<<pin_number); break;
+ 152:	0e 94 65 00 	call	0xca	; 0xca <GET_PORT_INDX>
+ 156:	e8 2f       	mov	r30, r24
+ 158:	f0 e0       	ldi	r31, 0x00	; 0
+ 15a:	ee 0f       	add	r30, r30
+ 15c:	ff 1f       	adc	r31, r31
+ 15e:	e0 5a       	subi	r30, 0xA0	; 160
+ 160:	ff 4f       	sbci	r31, 0xFF	; 255
+ 162:	01 90       	ld	r0, Z+
+ 164:	f0 81       	ld	r31, Z
+ 166:	e0 2d       	mov	r30, r0
+ 168:	20 81       	ld	r18, Z
+ 16a:	81 e0       	ldi	r24, 0x01	; 1
+ 16c:	90 e0       	ldi	r25, 0x00	; 0
+ 16e:	02 c0       	rjmp	.+4      	; 0x174 <GPIO_U8_PIN_DIR+0x60>
+ 170:	88 0f       	add	r24, r24
+ 172:	99 1f       	adc	r25, r25
+ 174:	ca 95       	dec	r28
+ 176:	e2 f7       	brpl	.-8      	; 0x170 <GPIO_U8_PIN_DIR+0x5c>
+ 178:	80 95       	com	r24
+ 17a:	82 23       	and	r24, r18
+ 17c:	80 83       	st	Z, r24
+			default : API_Status= ERROR_HAPPEN; break;
+		}
+
+		API_Status= NO_ERROR;
+	}
+	return API_Status ;
+ 17e:	81 e0       	ldi	r24, 0x01	; 1
+		
+		switch(pin_value)
+		{
+			case 1 :  *GPIO_DIR[GET_PORT_INDX(port_name)] |= (1<<pin_number); break;
+			
+			case 0 :  *GPIO_DIR[GET_PORT_INDX(port_name)] &=~(1<<pin_number); break;
+ 180:	03 c0       	rjmp	.+6      	; 0x188 <GPIO_U8_PIN_DIR+0x74>
+	u8 API_Status;
+
+	if (pin_number > no_of_pins_on_port-1)
+	{
+		API_Status = ERROR_HAPPEN;
+		return API_Status;
+ 182:	80 e0       	ldi	r24, 0x00	; 0
+ 184:	01 c0       	rjmp	.+2      	; 0x188 <GPIO_U8_PIN_DIR+0x74>
+			default : API_Status= ERROR_HAPPEN; break;
+		}
+
+		API_Status= NO_ERROR;
+	}
+	return API_Status ;
+ 186:	81 e0       	ldi	r24, 0x01	; 1
+
+}
+ 188:	cf 91       	pop	r28
+ 18a:	08 95       	ret
+
+0000018c <main>:
+#include <util/delay.h>
+
+int main(void)
+{
+ 
+ GPIO_U8_PIN_DIR('d',0,0);
+ 18c:	40 e0       	ldi	r20, 0x00	; 0
+ 18e:	60 e0       	ldi	r22, 0x00	; 0
+ 190:	84 e6       	ldi	r24, 0x64	; 100
+ 192:	0e 94 8a 00 	call	0x114	; 0x114 <GPIO_U8_PIN_DIR>
+ 
+ GPIO_U8_PIN_DIR('d',1,1);
+ 196:	41 e0       	ldi	r20, 0x01	; 1
+ 198:	61 e0       	ldi	r22, 0x01	; 1
+ 19a:	84 e6       	ldi	r24, 0x64	; 100
+ 19c:	0e 94 8a 00 	call	0x114	; 0x114 <GPIO_U8_PIN_DIR>
+ 
+//DDRD=0xff;
+ /* Set frame format: 8data, 2 stop bit */
+   usart_init();
+ 1a0:	0e 94 e5 00 	call	0x1ca	; 0x1ca <usart_init>
+   *DDR_A=0xff;
+ 1a4:	8f ef       	ldi	r24, 0xFF	; 255
+ 1a6:	8a bb       	out	0x1a, r24	; 26
+   *PORT_A=0x00;  
+ 1a8:	1b ba       	out	0x1b, r1	; 27
+   usart_flush(); 
+ 1aa:	0e 94 fe 00 	call	0x1fc	; 0x1fc <usart_flush>
+    unsigned int x ; 
+    while (1) 
+    {
+	
+		x= usart_Receive9bit();
+ 1ae:	0e 94 ed 00 	call	0x1da	; 0x1da <usart_Receive9bit>
+		 if (x==5)
+ 1b2:	05 97       	sbiw	r24, 0x05	; 5
+ 1b4:	29 f4       	brne	.+10     	; 0x1c0 <main+0x34>
+		   GPIO_U8_PORT_WRITE('a',0xff);
+ 1b6:	6f ef       	ldi	r22, 0xFF	; 255
+ 1b8:	81 e6       	ldi	r24, 0x61	; 97
+ 1ba:	0e 94 79 00 	call	0xf2	; 0xf2 <GPIO_U8_PORT_WRITE>
+ 1be:	f7 cf       	rjmp	.-18     	; 0x1ae <main+0x22>
+		 else 
+		  GPIO_U8_PORT_WRITE('a',0x00);    
+ 1c0:	60 e0       	ldi	r22, 0x00	; 0
+ 1c2:	81 e6       	ldi	r24, 0x61	; 97
+ 1c4:	0e 94 79 00 	call	0xf2	; 0xf2 <GPIO_U8_PORT_WRITE>
+ 1c8:	f2 cf       	rjmp	.-28     	; 0x1ae <main+0x22>
+
+000001ca <usart_init>:
+	/* Wait for data to be received */
+	while ( !(UCSRA & (1<<RXC)) )
+	;
+	/* Get and return received data from buffer */
+	return UDR;
+}
+ 1ca:	8f ef       	ldi	r24, 0xFF	; 255
+ 1cc:	89 b9       	out	0x09, r24	; 9
+ 1ce:	10 bc       	out	0x20, r1	; 32
+ 1d0:	88 e1       	ldi	r24, 0x18	; 24
+ 1d2:	8a b9       	out	0x0a, r24	; 10
+ 1d4:	8e e8       	ldi	r24, 0x8E	; 142
+ 1d6:	80 bd       	out	0x20, r24	; 32
+ 1d8:	08 95       	ret
+
+000001da <usart_Receive9bit>:
+
+unsigned int usart_Receive9bit( void )
+{
+	unsigned char status, resh, resl;
+	/* Wait for data to be received */
+	while ( !(UCSRA & (1<<RXC)) )
+ 1da:	5f 9b       	sbis	0x0b, 7	; 11
+ 1dc:	fe cf       	rjmp	.-4      	; 0x1da <usart_Receive9bit>
+	;
+	/* Get status and 9th bit, then data */
+	/* from buffer */
+	status = UCSRA;
+ 1de:	9b b1       	in	r25, 0x0b	; 11
+	resh = UCSRB;
+ 1e0:	8a b1       	in	r24, 0x0a	; 10
+	resl = UDR;
+ 1e2:	4c b1       	in	r20, 0x0c	; 12
+	/* If error, return -1 */
+	if ( status & ((1<<FE)|(1<<DOR)|(1<<PE)) )
+ 1e4:	9c 71       	andi	r25, 0x1C	; 28
+ 1e6:	39 f4       	brne	.+14     	; 0x1f6 <usart_Receive9bit+0x1c>
+	  return -1;
+	/* Filter the 9th bit, then return */
+	resh = (resh >> 1) & 0x01;
+	return ((resh << 8) | resl);
+ 1e8:	86 95       	lsr	r24
+ 1ea:	81 70       	andi	r24, 0x01	; 1
+ 1ec:	38 2f       	mov	r19, r24
+ 1ee:	20 e0       	ldi	r18, 0x00	; 0
+ 1f0:	c9 01       	movw	r24, r18
+ 1f2:	84 2b       	or	r24, r20
+ 1f4:	08 95       	ret
+	status = UCSRA;
+	resh = UCSRB;
+	resl = UDR;
+	/* If error, return -1 */
+	if ( status & ((1<<FE)|(1<<DOR)|(1<<PE)) )
+	  return -1;
+ 1f6:	8f ef       	ldi	r24, 0xFF	; 255
+ 1f8:	9f ef       	ldi	r25, 0xFF	; 255
+	/* Filter the 9th bit, then return */
+	resh = (resh >> 1) & 0x01;
+	return ((resh << 8) | resl);
+}
+ 1fa:	08 95       	ret
+
+000001fc <usart_flush>:
+
+
+void usart_flush( void )
+{
+	unsigned char dummy;
+	while ( UCSRA & (1<<RXC) ) dummy = UDR;
+ 1fc:	5f 9b       	sbis	0x0b, 7	; 11
+ 1fe:	03 c0       	rjmp	.+6      	; 0x206 <usart_flush+0xa>
+ 200:	8c b1       	in	r24, 0x0c	; 12
+ 202:	5f 99       	sbic	0x0b, 7	; 11
+ 204:	fd cf       	rjmp	.-6      	; 0x200 <usart_flush+0x4>
+ 206:	08 95       	ret
+
+00000208 <__tablejump2__>:
+ 208:	ee 0f       	add	r30, r30
+ 20a:	ff 1f       	adc	r31, r31
+ 20c:	05 90       	lpm	r0, Z+
+ 20e:	f4 91       	lpm	r31, Z
+ 210:	e0 2d       	mov	r30, r0
+ 212:	09 94       	ijmp
+
+00000214 <_exit>:
+ 214:	f8 94       	cli
+
+00000216 <__stop_program>:
+ 216:	ff cf       	rjmp	.-2      	; 0x216 <__stop_program>
