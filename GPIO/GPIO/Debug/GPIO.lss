@@ -1,0 +1,248 @@
+
+GPIO.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000184  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000010  00800060  00000184  000001f8  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .comment      00000030  00000000  00000000  00000208  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000238  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000080  00000000  00000000  00000274  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000ab0  00000000  00000000  000002f4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000006b6  00000000  00000000  00000da4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000438  00000000  00000000  0000145a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000118  00000000  00000000  00001894  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    0000044c  00000000  00000000  000019ac  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    000006dc  00000000  00000000  00001df8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000060  00000000  00000000  000024d4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__ctors_end>
+   4:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+   8:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+   c:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  10:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  14:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  18:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  1c:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  20:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  24:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  28:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  2c:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  30:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  34:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  38:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  3c:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  40:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  44:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  48:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  4c:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  50:	0c 94 63 00 	jmp	0xc6	; 0xc6 <__bad_interrupt>
+  54:	70 00       	.word	0x0070	; ????
+  56:	72 00       	.word	0x0072	; ????
+  58:	74 00       	.word	0x0074	; ????
+  5a:	76 00       	.word	0x0076	; ????
+  5c:	77 00       	.word	0x0077	; ????
+  5e:	77 00       	.word	0x0077	; ????
+  60:	77 00       	.word	0x0077	; ????
+  62:	77 00       	.word	0x0077	; ????
+  64:	77 00       	.word	0x0077	; ????
+  66:	77 00       	.word	0x0077	; ????
+  68:	77 00       	.word	0x0077	; ????
+  6a:	77 00       	.word	0x0077	; ????
+  6c:	77 00       	.word	0x0077	; ????
+  6e:	77 00       	.word	0x0077	; ????
+  70:	77 00       	.word	0x0077	; ????
+  72:	77 00       	.word	0x0077	; ????
+  74:	77 00       	.word	0x0077	; ????
+  76:	77 00       	.word	0x0077	; ????
+  78:	77 00       	.word	0x0077	; ????
+  7a:	77 00       	.word	0x0077	; ????
+  7c:	77 00       	.word	0x0077	; ????
+  7e:	77 00       	.word	0x0077	; ????
+  80:	77 00       	.word	0x0077	; ????
+  82:	77 00       	.word	0x0077	; ????
+  84:	77 00       	.word	0x0077	; ????
+  86:	77 00       	.word	0x0077	; ????
+  88:	77 00       	.word	0x0077	; ????
+  8a:	77 00       	.word	0x0077	; ????
+  8c:	77 00       	.word	0x0077	; ????
+  8e:	77 00       	.word	0x0077	; ????
+  90:	77 00       	.word	0x0077	; ????
+  92:	77 00       	.word	0x0077	; ????
+  94:	70 00       	.word	0x0070	; ????
+  96:	72 00       	.word	0x0072	; ????
+  98:	74 00       	.word	0x0074	; ????
+  9a:	76 00       	.word	0x0076	; ????
+
+0000009c <__ctors_end>:
+  9c:	11 24       	eor	r1, r1
+  9e:	1f be       	out	0x3f, r1	; 63
+  a0:	cf e5       	ldi	r28, 0x5F	; 95
+  a2:	d8 e0       	ldi	r29, 0x08	; 8
+  a4:	de bf       	out	0x3e, r29	; 62
+  a6:	cd bf       	out	0x3d, r28	; 61
+
+000000a8 <__do_copy_data>:
+  a8:	10 e0       	ldi	r17, 0x00	; 0
+  aa:	a0 e6       	ldi	r26, 0x60	; 96
+  ac:	b0 e0       	ldi	r27, 0x00	; 0
+  ae:	e4 e8       	ldi	r30, 0x84	; 132
+  b0:	f1 e0       	ldi	r31, 0x01	; 1
+  b2:	02 c0       	rjmp	.+4      	; 0xb8 <__do_copy_data+0x10>
+  b4:	05 90       	lpm	r0, Z+
+  b6:	0d 92       	st	X+, r0
+  b8:	a0 37       	cpi	r26, 0x70	; 112
+  ba:	b1 07       	cpc	r27, r17
+  bc:	d9 f7       	brne	.-10     	; 0xb4 <__do_copy_data+0xc>
+  be:	0e 94 9b 00 	call	0x136	; 0x136 <main>
+  c2:	0c 94 c0 00 	jmp	0x180	; 0x180 <_exit>
+
+000000c6 <__bad_interrupt>:
+  c6:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000ca <GET_PORT_INDX>:
+u8 GPIO_U8_PORT_READ_DIR(u8 port_name , u8 *pt_value)
+{
+	*pt_value = *GPIO_DIR[GET_PORT_INDX(port_name)]  ;
+	
+	return NO_ERROR;
+}
+  ca:	90 e0       	ldi	r25, 0x00	; 0
+  cc:	fc 01       	movw	r30, r24
+  ce:	e1 54       	subi	r30, 0x41	; 65
+  d0:	f1 09       	sbc	r31, r1
+  d2:	e4 32       	cpi	r30, 0x24	; 36
+  d4:	f1 05       	cpc	r31, r1
+  d6:	58 f4       	brcc	.+22     	; 0xee <GET_PORT_INDX+0x24>
+  d8:	e6 5d       	subi	r30, 0xD6	; 214
+  da:	ff 4f       	sbci	r31, 0xFF	; 255
+  dc:	0c 94 ba 00 	jmp	0x174	; 0x174 <__tablejump2__>
+  e0:	20 e0       	ldi	r18, 0x00	; 0
+  e2:	05 c0       	rjmp	.+10     	; 0xee <GET_PORT_INDX+0x24>
+  e4:	21 e0       	ldi	r18, 0x01	; 1
+  e6:	03 c0       	rjmp	.+6      	; 0xee <GET_PORT_INDX+0x24>
+  e8:	22 e0       	ldi	r18, 0x02	; 2
+  ea:	01 c0       	rjmp	.+2      	; 0xee <GET_PORT_INDX+0x24>
+  ec:	23 e0       	ldi	r18, 0x03	; 3
+  ee:	82 2f       	mov	r24, r18
+  f0:	08 95       	ret
+
+000000f2 <GPIO_U8_PORT_DIR>:
+  f2:	cf 93       	push	r28
+  f4:	c6 2f       	mov	r28, r22
+  f6:	0e 94 65 00 	call	0xca	; 0xca <GET_PORT_INDX>
+  fa:	e8 2f       	mov	r30, r24
+  fc:	f0 e0       	ldi	r31, 0x00	; 0
+  fe:	ee 0f       	add	r30, r30
+ 100:	ff 1f       	adc	r31, r31
+ 102:	e0 5a       	subi	r30, 0xA0	; 160
+ 104:	ff 4f       	sbci	r31, 0xFF	; 255
+ 106:	01 90       	ld	r0, Z+
+ 108:	f0 81       	ld	r31, Z
+ 10a:	e0 2d       	mov	r30, r0
+ 10c:	c0 83       	st	Z, r28
+ 10e:	81 e0       	ldi	r24, 0x01	; 1
+ 110:	cf 91       	pop	r28
+ 112:	08 95       	ret
+
+00000114 <GPIO_U8_PORT_WRITE>:
+
+u8 GPIO_U8_PORT_WRITE(u8 port_name , u8 port_value)
+{
+ 114:	cf 93       	push	r28
+ 116:	c6 2f       	mov	r28, r22
+	*GPIO_PORT[GET_PORT_INDX(port_name)]=port_value ;
+ 118:	0e 94 65 00 	call	0xca	; 0xca <GET_PORT_INDX>
+ 11c:	e8 2f       	mov	r30, r24
+ 11e:	f0 e0       	ldi	r31, 0x00	; 0
+ 120:	ee 0f       	add	r30, r30
+ 122:	ff 1f       	adc	r31, r31
+ 124:	e8 59       	subi	r30, 0x98	; 152
+ 126:	ff 4f       	sbci	r31, 0xFF	; 255
+ 128:	01 90       	ld	r0, Z+
+ 12a:	f0 81       	ld	r31, Z
+ 12c:	e0 2d       	mov	r30, r0
+ 12e:	c0 83       	st	Z, r28
+	
+	return NO_ERROR;
+}
+ 130:	81 e0       	ldi	r24, 0x01	; 1
+ 132:	cf 91       	pop	r28
+ 134:	08 95       	ret
+
+00000136 <main>:
+*/
+
+int main(void)
+{
+	
+   GPIO_U8_PORT_DIR('A', u8_Direction_output);
+ 136:	6f ef       	ldi	r22, 0xFF	; 255
+ 138:	81 e4       	ldi	r24, 0x41	; 65
+ 13a:	0e 94 79 00 	call	0xf2	; 0xf2 <GPIO_U8_PORT_DIR>
+    while (1) 
+    {   
+		GPIO_U8_PORT_WRITE('a', u8_Direction_output) ;
+ 13e:	6f ef       	ldi	r22, 0xFF	; 255
+ 140:	81 e6       	ldi	r24, 0x61	; 97
+ 142:	0e 94 8a 00 	call	0x114	; 0x114 <GPIO_U8_PORT_WRITE>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 146:	2f ef       	ldi	r18, 0xFF	; 255
+ 148:	82 e5       	ldi	r24, 0x52	; 82
+ 14a:	97 e0       	ldi	r25, 0x07	; 7
+ 14c:	21 50       	subi	r18, 0x01	; 1
+ 14e:	80 40       	sbci	r24, 0x00	; 0
+ 150:	90 40       	sbci	r25, 0x00	; 0
+ 152:	e1 f7       	brne	.-8      	; 0x14c <main+0x16>
+ 154:	00 c0       	rjmp	.+0      	; 0x156 <main+0x20>
+ 156:	00 00       	nop
+		_delay_ms(300);
+		
+       GPIO_U8_PORT_WRITE('a' , u8_Direction_input) ;
+ 158:	60 e0       	ldi	r22, 0x00	; 0
+ 15a:	81 e6       	ldi	r24, 0x61	; 97
+ 15c:	0e 94 8a 00 	call	0x114	; 0x114 <GPIO_U8_PORT_WRITE>
+ 160:	2f ef       	ldi	r18, 0xFF	; 255
+ 162:	82 e5       	ldi	r24, 0x52	; 82
+ 164:	97 e0       	ldi	r25, 0x07	; 7
+ 166:	21 50       	subi	r18, 0x01	; 1
+ 168:	80 40       	sbci	r24, 0x00	; 0
+ 16a:	90 40       	sbci	r25, 0x00	; 0
+ 16c:	e1 f7       	brne	.-8      	; 0x166 <main+0x30>
+ 16e:	00 c0       	rjmp	.+0      	; 0x170 <main+0x3a>
+ 170:	00 00       	nop
+ 172:	e5 cf       	rjmp	.-54     	; 0x13e <main+0x8>
+
+00000174 <__tablejump2__>:
+ 174:	ee 0f       	add	r30, r30
+ 176:	ff 1f       	adc	r31, r31
+ 178:	05 90       	lpm	r0, Z+
+ 17a:	f4 91       	lpm	r31, Z
+ 17c:	e0 2d       	mov	r30, r0
+ 17e:	09 94       	ijmp
+
+00000180 <_exit>:
+ 180:	f8 94       	cli
+
+00000182 <__stop_program>:
+ 182:	ff cf       	rjmp	.-2      	; 0x182 <__stop_program>
