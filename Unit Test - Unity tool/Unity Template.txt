@@ -1,0 +1,99 @@
+/* Unit test file Templeate formate .c file , in the unity tool */ 
+/* Also How to Create a TEST Runner .c file Manually, at the end of this file **/ 
+/*====================================================================================*/
+
+#include "unity.h"
+#include "unity_fixture.h"
+#include "divideMe.h"
+
+/*===== Put All test cases in a Group ==========*/
+//the name of "TEST_GROUP" is the same of the name of the file you want to test it
+// in this case it's name is "divideMe" without the extension
+TEST_GROUP(divideMe); 
+/******************************************************************************************/
+
+/*============= after test group declaration , put the shared data========================*/
+/*===============================Shared Data==============================================*/
+/******************************************************************************************/
+
+/*========== Her, is setting of the testing Environment ===================================*/ 
+/* setup(){} or TEST_SETUP(){} to initialize you test enviroment, 
+    and put init values for variable to be determined at start the test process */
+TEST_SETUP(divideMe){ 
+  // put the initial values of the shared data here if exists
+}
+
+/* this function return your variables to init values according to setup() function - run after the end of test case is done 
+ and if you want to do a restart of your environment, this function is run first, then setup() func this automatic don't warry*/ 
+TEST_TEAR_DOWN(divideMe){
+
+}
+/*******************************************************************************************/
+
+/* ====================Write your test cases here =========================================*/
+/* unit test function have a fixed name=> "TEST()", the firsr parameter is the name of the 
+   group_test you wrote it above, the 2nd parameter is a message any message you want but you musn't 
+repeat the same message with another "TEST()" function inside the TEST_GROUP();   */ 
+   
+TEST(divideMe,ThisFuncIsDivideTwoNoms)
+{
+	TEST_ASSERT_EQUAL_INT(2, divide_nom(2,1));
+}
+TEST(divideMe,_ThisFuncIsDivideTwoNoms)
+{
+	TEST_ASSERT_EQUAL_INT(5, divide_nom(10,10));
+}
+/*******************************************************************************************/
+
+/*=== AFter you wrote your test cases in a group, you must make a function to run the group */ 
+/****== TEST_GROUP_RUNNER(divideMe) to run a group of a test cases you wrote it above *****/
+/***** it take the name of the group , 
+        you must to run every test case also inside this function ! 
+		you can use the auto script generator to generate a runner file instead of this repeatirive steps 
+        */ 		
+//This part you should put it in a seperate file for modularity concept , and to put all group runner in a single file togther 
+  //when you make a test for mutilplr modules , but it's ok now we test one module  
+ TEST_GROUP_RUNNER(divideMe){
+/** RUN_TEST_CASE(Group_name , message in your test case func); **/ 
+	RUN_TEST_CASE(divideMe , ThisFuncIsDivideTwoNoms);
+	RUN_TEST_CASE(divideMe , _ThisFuncIsDivideTwoNoms);
+}
+/*=============================================================================================*/
+/*=====================END OF TEST_CASE_FILE==================================================*/
+/*=============================================================================================*/
+
+
+
+
+
+/*=============================================================================================*/
+/*=========================== RUNNER FILE ============================================*/
+/*=============================================================================================*/
+/** How to create a Runner File Manually ? ***/ 
+/** runner file is a file running your test cases and show you the results **/ 
+===============================================================================
+
+/* inside the main() file , 
+  you must to call a runner to run your TEST_GROUP_RUNNER(divideMe); above ,
+  
+    first , make a function that didn't take or return anything 
+    call TEST_GROUP_RUNNER(divideMe); inside of it 
+	
+	inside the main() 
+	 call UnityMain(argc, argv, the name of the function you just created above);
+//////////////////////////////////////////////////////////////////////////////
+EXample: */  
+#include <stdio.h>
+#include <stdlib.h>
+#include "unity.h"
+#include "unity_fixture.h"
+
+void runallTests(void)
+{
+	RUN_TEST_GROUP(divideMe);
+}
+int main(int argc, const char * argv[]) {
+
+	return UnityMain(argc, argv, runallTests);
+}
+/***********************************************************************************************/
